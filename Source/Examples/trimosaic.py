@@ -18,7 +18,7 @@ def main():
     PlotHistogram(EvalSquareResidues(y, LinearMap(x, *p), len(x) - 2), 'Squared residues histogram', 'Squared distances [$\\sigma^2$]', 'Occurencies', bins = 20, legend=f'df = {len(x) - 2}')
 
     ChangePlotIndex(2)
-    PlotHistogram(EvalResidues(y, LinearMap(x, *p), len(x) - 2), 'Residues histogram', 'Distances [$\\sigma$]', 'Frequencies', legend=f'df = {len(x) - 2}')
+    PlotHistogram(EvalResidues(y, LinearMap(x, *p), len(x) - 2), 'Residues histogram', 'Distances [$\\sigma$]', 'Occurrencies', legend=f'df = {len(x) - 2}')
 
     ShowPlot()
 
