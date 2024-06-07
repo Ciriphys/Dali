@@ -11,10 +11,10 @@ Here is a list of all the features implemented so far:
 - [x] Basic plotting (errorbar and histogram) 
 - [x] Support for multiple plots (max 3)
 - [x] Multiple color palettes and designed to be stylish
-- [_] Organized output folder for images 
-- [_] Basic algorithms for data analysis (Clusterization, Data cleaner)
-- [_] Support for other types of plots (Spectrogram and more)
-- [_] Deployment as a Python package
+- [ ] Organized output folder for images 
+- [ ] Basic algorithms for data analysis (Clusterization, Data cleaner)
+- [ ] Support for other types of plots (Spectrogram and more)
+- [ ] Deployment as a Python package
 
 ## Usage Example
 
