@@ -8,7 +8,7 @@ as well as fast and reliable. Feel free to contribute by forking and opening pul
 Dali is still a very basic project with little core functionality, however it can speed up redundant and boring tasks by ~200%.
 Here is a list of all the features implemented so far:
 
-- [x] Basic plotting (errorbar and histogram) 
+- [x] Basic plotting (plot, errorbar and histogram) 
 - [x] Support for multiple plots (max 3)
 - [x] Multiple color palettes and designed to be stylish
 - [x] Organized output folder for images 
