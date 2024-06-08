@@ -11,7 +11,7 @@ Here is a list of all the features implemented so far:
 - [x] Basic plotting (errorbar and histogram) 
 - [x] Support for multiple plots (max 3)
 - [x] Multiple color palettes and designed to be stylish
-- [ ] Organized output folder for images 
+- [x] Organized output folder for images 
 - [ ] Basic algorithms for data analysis (Clusterization, Data cleaner)
 - [ ] Support for other types of plots (Spectrogram and more)
 - [ ] Deployment as a Python package
@@ -43,10 +43,10 @@ def main():
     ChangePlotIndex(2)
     PlotHistogram(EvalResidues(y, LinearMap(x, *p), len(x) - 2), 'Residues histogram', 'Distances [$\\sigma$]', 'Frequencies', legend=f'df = {len(x) - 2}')
 
-    ShowPlot()
+    ShowPlot('Trimosaic.png')
 
 if __name__ == '__main__':
-    InitPlotMode(mode = 'trimosaic', figSize = (16, 8), palette = 'Funky')
+    InitPlotMode(mode = 'trimosaic', figSize = (16, 8), palette = 'Funky', path = 'Images/')
     main()
 ```
 

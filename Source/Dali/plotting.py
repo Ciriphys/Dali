@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
+import os
+
 from . import fonts as f
 from . import color as c
 
-currentFilename = None
 currentColorIndex = 0
 zOrder = 3
 showLegend = False
@@ -17,11 +18,14 @@ axes = None
 maxPlotIndex = 0
 currentPlotIndex = 0
 
+folderPath = None
+
 plotMode = ['normal', 'bimosaic', 'trimosaic']
 
-def InitPlotMode(style = 'seaborn-whitegrid', palette = 'Funky', fontFamily = f.HelveticaFF, fontSizeL = 12, fontSizeT = 14, figSize = (10, 6), mode = 'normal'):
+def InitPlotMode(style = 'seaborn-whitegrid', palette = 'Funky', fontFamily = f.HelveticaFF, fontSizeL = 12, fontSizeT = 14, figSize = (10, 6), mode = 'normal', path = 'Images/'):
     global labelFontSize
     global titleFontSize
+    global folderPath
     global figure
     global axes
 
@@ -36,6 +40,8 @@ def InitPlotMode(style = 'seaborn-whitegrid', palette = 'Funky', fontFamily = f.
 
     labelFontSize = fontSizeL
     titleFontSize = fontSizeT
+
+    folderPath = path
 
     SetPlotMode(mode, figSize)
 
@@ -59,7 +65,7 @@ def SetPlotMode(mode = 'normal', figSize = (10, 6)):
         plt.figure(figsize = figSize)
         figure, axes = None, None
 
-def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, filename = None):
+def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', legend = None):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -79,12 +85,9 @@ def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', leg
     if legend:
         showLegend = True
 
-    if filename:
-        currentFilename = filename
-
     currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
 
-def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, filename = None, wBin = 0.8, bins = 10, density = False):
+def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, wBin = 0.8, bins = 10, density = False):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -103,12 +106,9 @@ def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, 
     if legend:
         showLegend = True
 
-    if filename:
-        currentFilename = filename
-
     currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
 
-def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, filename = None):
+def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, ylabel = None, marker = '.', legend = None):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -129,9 +129,6 @@ def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, y
     if legend:
         showLegend = True
 
-    if filename:
-        currentFilename = filename
-
     currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
 
 def ChangePlotIndex(index):
@@ -144,18 +141,20 @@ def ChangePlotIndex(index):
     if index < maxPlotIndex and index >= 0:
         currentPlotIndex = index
 
-def PlotFit(x, y, title = None, xlabel = None, ylabel = None, marker = '-', legend = 'Best fit', filename = None):
-    PlotData(x, y, title, xlabel, ylabel, marker, legend, filename)
+def PlotFit(x, y, title = None, xlabel = None, ylabel = None, marker = '-', legend = 'Best fit'):
+    PlotData(x, y, title, xlabel, ylabel, marker, legend)
 
-def ShowPlot():
+def ShowPlot(filename = None):
     global zOrder
     global plotExists
     global showLegend
 
     plotExists = False
 
-    if currentFilename:
-        plt.savefig(currentFilename)
+    if filename:
+        if not os.path.exists(folderPath):
+            os.mkdir(folderPath)
+        plt.savefig(folderPath + filename)
 
     if showLegend:
         ShowLegend()

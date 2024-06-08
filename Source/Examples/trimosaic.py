@@ -20,8 +20,8 @@ def main():
     ChangePlotIndex(2)
     PlotHistogram(EvalResidues(y, LinearMap(x, *p), len(x) - 2), 'Residues histogram', 'Distances [$\\sigma$]', 'Occurrencies', legend=f'df = {len(x) - 2}')
 
-    ShowPlot()
+    ShowPlot('Trimosaic.png')
 
 if __name__ == '__main__':
-    InitPlotMode(mode = 'trimosaic', figSize = (16, 8), palette = 'Funky')
+    InitPlotMode(mode = 'trimosaic', figSize = (16, 8), palette = 'Funky', path = 'Images/')
     main()
