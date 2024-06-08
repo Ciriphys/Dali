@@ -13,9 +13,9 @@ from .color import *
 from .fonts import *
 from .plotting import *
 from .algorithms import *
-
-# TODO : LaTeX utils
+from .latex import *
 
 __all__ = ['np', 'pd', 'plt', 'norm', 'chi2', 't', 'poisson', 'CurveFit', 'LinearMap', 'ParabolicMap', 'ArmonicMap', 'ModelCompatibility',
            'DataCompatibility', 'InitPlotMode', 'SetPlotMode', 'ChangePlotIndex', 'SetPalette', 'SetFontFamily', 'EvalResidues',
-           'EvalSquareResidues', 'PlotHistogram', 'PlotData', 'PlotErrorData', 'PlotFit', 'ShowPlot', 'HistToPDF']
+           'EvalSquareResidues', 'PlotHistogram', 'PlotData', 'PlotErrorData', 'PlotFit', 'ShowPlot', 'Clusterize', 'IntervalTimeData',
+           'IntervalData', 'ReadCsv', 'DisplayQuantity', 'ExportMeasurements']

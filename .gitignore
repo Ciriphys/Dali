@@ -1,3 +1,6 @@
 __pycache__/
+Images/
 *.pyc
 .DS_Store
+*.txt
+main.py
