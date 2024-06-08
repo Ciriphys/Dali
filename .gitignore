@@ -5,3 +5,6 @@ Images/
 *.txt
 main.py
 setup.py
+dist/
+*.egg-info/
+build/
