@@ -93,7 +93,7 @@ def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', leg
     if legend:
         showLegend = True
 
-    currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
+    currentColorIndex = 0 if currentColorIndex > 6 else currentColorIndex + 1
 
 def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, wBin = 0.8, bins = 10, xLogScale = False, yLogScale = False):
     global currentColorIndex
@@ -102,7 +102,6 @@ def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, 
     global plotExists
 
     plotExists = True
-
     SetMetadata(title, xlabel, ylabel)
 
     if figure:
@@ -122,7 +121,7 @@ def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, 
     if legend:
         showLegend = True
 
-    currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
+    currentColorIndex = 0 if currentColorIndex > 6 else currentColorIndex + 1
 
 def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, xLogScale = False, yLogScale = False):
     global currentColorIndex
@@ -131,7 +130,6 @@ def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, y
     global plotExists
 
     plotExists = True
-
     SetMetadata(title, xlabel, ylabel)
 
     if figure:
@@ -153,7 +151,7 @@ def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, y
     if legend:
         showLegend = True
 
-    currentColorIndex = 0 if currentColorIndex > 7 else currentColorIndex + 1
+    currentColorIndex = 0 if currentColorIndex > 6 else currentColorIndex + 1
 
 def ChangePlotIndex(index):
     global currentPlotIndex
@@ -185,6 +183,7 @@ def ShowPlot(filename = None):
 
     plt.show()
     zOrder = 3
+    currentColorIndex = 0
 
 def SetMetadata(title, xlabel, ylabel):
      if figure:
