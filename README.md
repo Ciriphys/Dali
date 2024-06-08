@@ -12,9 +12,10 @@ Here is a list of all the features implemented so far:
 - [x] Support for multiple plots (max 3)
 - [x] Multiple color palettes and designed to be stylish
 - [x] Organized output folder for images 
-- [ ] Basic algorithms for data analysis (Clusterization, Data cleaner)
-- [ ] Support for other types of plots (Spectrogram and more)
+- [x] Basic algorithms for data analysis (Clusterization, Data cleaner)
+- [x] LaTeX support for exporting measurements (Measurements and data tables)
 - [ ] Deployment as a Python package
+- [ ] Support for other types of plots (Spectrogram and more)
 
 ## Usage Example
 
