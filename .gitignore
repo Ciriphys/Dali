@@ -4,3 +4,4 @@ Images/
 .DS_Store
 *.txt
 main.py
+setup.py

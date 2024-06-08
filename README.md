@@ -14,8 +14,24 @@ Here is a list of all the features implemented so far:
 - [x] Organized output folder for images 
 - [x] Basic algorithms for data analysis (Clusterization, Data cleaner)
 - [x] LaTeX support for exporting measurements (Measurements and data tables)
-- [ ] Deployment as a Python package
+- [x] Deployment as a Python package
 - [ ] Support for other types of plots (Spectrogram and more)
+
+## Install 
+
+To install Dali, simply use:
+
+```
+pip install dali_lib
+```
+
+To use it in your own project, use:
+
+```python
+import Dali
+
+# Your code...
+```
 
 ## Usage Example
 

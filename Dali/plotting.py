@@ -22,7 +22,7 @@ folderPath = None
 
 plotMode = ['normal', 'bimosaic', 'trimosaic']
 
-def InitPlotMode(style = 'seaborn-whitegrid', palette = 'Funky', fontFamily = f.HelveticaFF, fontSizeL = 12, fontSizeT = 14, figSize = (10, 6), mode = 'normal', path = 'Images/'):
+def InitPlotMode(style = 'seaborn-v0_8-whitegrid', palette = 'Funky', fontFamily = f.HelveticaFF, fontSizeL = 12, fontSizeT = 14, figSize = (10, 6), mode = 'normal', path = 'Images/'):
     global labelFontSize
     global titleFontSize
     global folderPath
