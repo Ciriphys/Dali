@@ -65,7 +65,7 @@ def SetPlotMode(mode = 'normal', figSize = (10, 6)):
         plt.figure(figsize = figSize)
         figure, axes = None, None
 
-def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, xLogScale = False, yLogScale = False):
+def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, xLogScale = False, yLogScale = False, xLim = None, yLim = None):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -79,14 +79,21 @@ def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', leg
             axes[currentPlotIndex].set_xscale('log')
         if yLogScale:
             axes[currentPlotIndex].set_yscale('log')
+        if xLim:
+            axes[currentPlotIndex].set_xlim(*xLim)
+        if yLim:
+            axes[currentPlotIndex].set_ylim(*yLim)
         axes[currentPlotIndex].plot(x, y, marker, label=legend, color = c.colorPalette[currentColorIndex], zorder = zOrder)
         zOrder += 1
-
     else:
         if xLogScale:
             plt.xscale('log')
         if yLogScale:
             plt.yscale('log')
+        if xLim:
+            plt.xlim(*xLim)
+        if yLim:
+            plt.ylim(*yLim)
         plt.plot(x, y, marker, label=legend, color = c.colorPalette[currentColorIndex], zorder = zOrder)
         zOrder += 1
 
@@ -95,7 +102,7 @@ def PlotData(x, y, title = None, xlabel = None, ylabel = None, marker = '.', leg
 
     currentColorIndex = 0 if currentColorIndex > 6 else currentColorIndex + 1
 
-def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, wBin = 0.8, bins = 10, xLogScale = False, yLogScale = False):
+def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, wBin = 0.8, bins = 10, xLogScale = False, yLogScale = False, xLim = None, yLim = None):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -109,21 +116,28 @@ def PlotHistogram(x, title = None, xlabel = None, ylabel = None, legend = None, 
             axes[currentPlotIndex].set_xscale('log')
         if yLogScale:
             axes[currentPlotIndex].set_yscale('log')
+        if xLim:
+            axes[currentPlotIndex].set_xlim(*xLim)
+        if yLim:
+            axes[currentPlotIndex].set_ylim(*yLim)
         axes[currentPlotIndex].hist(x, rwidth = wBin, bins = bins, color = c.colorPalette[currentColorIndex], label = legend)
-
     else:
         if xLogScale:
             plt.xscale('log')
         if yLogScale:
             plt.yscale('log')
         plt.hist(x, rwidth = wBin, bins = bins, color = c.colorPalette[currentColorIndex], label = legend)
+        if xLim:
+            plt.xlim(*xLim)
+        if yLim:
+            plt.ylim(*yLim)
 
     if legend:
         showLegend = True
 
     currentColorIndex = 0 if currentColorIndex > 6 else currentColorIndex + 1
 
-def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, xLogScale = False, yLogScale = False):
+def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, ylabel = None, marker = '.', legend = None, xLogScale = False, yLogScale = False, xLim = None, yLim = None):
     global currentColorIndex
     global showLegend
     global zOrder
@@ -137,14 +151,21 @@ def PlotErrorData(x, y, xerr = None, yerr = None, title = None, xlabel = None, y
             axes[currentPlotIndex].set_xscale('log')
         if yLogScale:
             axes[currentPlotIndex].set_yscale('log')
+        if xLim:
+            axes[currentPlotIndex].set_xlim(*xLim)
+        if yLim:
+            axes[currentPlotIndex].set_ylim(*yLim)
         axes[currentPlotIndex].errorbar(x, y, xerr=xerr, yerr=yerr, fmt=marker, label=legend, color = c.colorPalette[currentColorIndex], zorder = zOrder)
         zOrder += 1
-
     else:
         if xLogScale:
             plt.xscale('log')
         if yLogScale:
             plt.yscale('log')
+        if xLim:
+            plt.xlim(*xLim)
+        if yLim:
+            plt.ylim(*yLim)
         plt.errorbar(x, y, xerr=xerr, yerr=yerr, fmt=marker, label=legend, color = c.colorPalette[currentColorIndex], zorder = zOrder)
         zOrder += 1
 
@@ -163,8 +184,8 @@ def ChangePlotIndex(index):
     if index < maxPlotIndex and index >= 0:
         currentPlotIndex = index
 
-def PlotFit(x, y, title = None, xlabel = None, ylabel = None, marker = '-', legend = 'Best fit', xLogScale = False, yLogScale = False):
-    PlotData(x, y, title, xlabel, ylabel, marker, legend, xLogScale, yLogScale)
+def PlotFit(x, y, title = None, xlabel = None, ylabel = None, marker = '-', legend = 'Best fit', xLogScale = False, yLogScale = False, xLim = None, yLim = None):
+    PlotData(x, y, title, xlabel, ylabel, marker, legend, xLogScale, yLogScale, xLim, yLim)
 
 def ShowPlot(filename = None):
     global zOrder
