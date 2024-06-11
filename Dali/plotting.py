@@ -191,6 +191,7 @@ def ShowPlot(filename = None):
     global zOrder
     global plotExists
     global showLegend
+    global currentColorIndex
 
     plotExists = False
 
