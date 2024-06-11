@@ -197,14 +197,14 @@ def ShowPlot(filename = None):
     if showLegend:
         ShowLegend()
 
-    plt.show()
-    zOrder = 3
-    currentColorIndex = 0
-
     if filename:
         if not os.path.exists(folderPath):
             os.mkdir(folderPath)
         plt.savefig(folderPath + filename)
+
+    plt.show()
+    zOrder = 3
+    currentColorIndex = 0
 
 
 def SetMetadata(title, xlabel, ylabel):
